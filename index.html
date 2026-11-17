@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Libros · Biblioteca</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <main class="contenedor">
+
+    <header class="encabezado">
+      <p class="encabezado__eyebrow">Catálogo de biblioteca</p>
+      <h1 class="encabezado__titulo">Registro de Libros</h1>
+    </header>
+
+    <!-- ==========================================================
+         FORMULARIO
+         Cada campo trae su <p class="error" id="error-...">.
+         El radio y el select también validan que haya algo elegido.
+    =========================================================== -->
+    <section class="formulario" id="seccion-registro" aria-label="Formulario de registro de libro">
+      <form>
+        <div class="campo">
+          <label for="input-titulo">Título del libro</label>
+          <input name="titulo" type="text" placeholder="Ej: Cien años de soledad" />
+          <p class="error"></p>
+        </div>
+
+        <fieldset class="campo campo--fieldset">
+          <legend>¿Tapa dura?</legend>
+          <div class="radios">
+            <label class="radios__opcion">
+              <input type="radio" value="1" />
+              Sí
+            </label>
+            <label class="radios__opcion">
+              <input type="radio" value="0" />
+              No
+            </label>
+          </div>
+          <p class="error"></p>
+        </fieldset>
+
+        <div class="campo">
+          <label for="select-categoria">Categoría</label>
+          <select>
+            <option value="0">-- Seleccione --</option>
+            <option value="1">Ficción</option>
+            <option value="2">No ficción</option>
+            <option value="3">Fantasía</option>
+          </select>
+          <p class="error"></p>
+        </div>
+
+        <button type="submit" id="btn-agregar">Agregar libro</button>
+
+      </form>
+    </section>
+
+    <!-- ==========================================================
+         TABLA DE LIBROS REGISTRADOS
+    =========================================================== -->
+    <section class="tabla" aria-label="Libros registrados">
+      <div class="tabla__scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Tapa dura</th>
+              <th>Categoría</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Las filas se agregan aquí dinámicamente con JS -->
+            <tr>
+              <td>La llamada de cthulhu</td>
+              <td>Sí</td>
+              <td>Fantasía</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         ESTADÍSTICAS — cantidad de libros por categoría.
+         Cada <span> tiene id propio, listo para actualizar el
+         número cada vez que se agregue un libro.
+    =========================================================== -->
+    <section class="estadisticas" aria-label="Estadísticas por categoría">
+      <h2 class="estadisticas__titulo">Libros por categoría</h2>
+      <div class="estadisticas__grid">
+        <div class="stat-card stat--ficcion">
+          <span class="stat-card__numero">0</span>
+          <span class="stat-card__label">Ficción</span>
+        </div>
+        <div class="stat-card stat--no-ficcion">
+          <span class="stat-card__numero">0</span>
+          <span class="stat-card__label">No ficción</span>
+        </div>
+        <div class="stat-card stat--fantasia">
+          <span class="stat-card__numero">0</span>
+          <span class="stat-card__label">Fantasía</span>
+        </div>
+        <div class="stat-card stat--total">
+          <span class="stat-card__numero">0</span>
+          <span class="stat-card__label">Total</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+
+</html>
